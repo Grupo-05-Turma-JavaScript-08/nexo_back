@@ -1,6 +1,7 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { IsNotEmpty } from "class-validator";
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Insurance } from "../../insurance/entities/insurance.entity";
 
 @Entity({ name: "tb_car" })
 export class Car {
@@ -24,7 +25,12 @@ export class Car {
     @ApiProperty()
     @Column({ type: Date, nullable: false })
     manufacturingYear: Date
-                            
 
+    @ManyToOne(() => Insurance, (insurance) => insurance.car, {
+        onDelete: "CASCADE"
+    })
+    
+    @JoinColumn({ name: "insurance_id" })
+    insurance: Insurance
 }
 

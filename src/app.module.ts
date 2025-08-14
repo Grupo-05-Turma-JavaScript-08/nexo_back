@@ -4,6 +4,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DevService } from './data/services/dev.service';
 import { CarModule } from './car/car.module';
+import { InsuranceModule } from './insurance/insurance.module';
 
 @Module({
   imports: [
@@ -12,7 +13,7 @@ import { CarModule } from './car/car.module';
       useClass: DevService,
       imports: [ConfigModule],
     }),
-  CarModule
+  CarModule,InsuranceModule
   ],
   controllers: [AppController],
   providers: [],
