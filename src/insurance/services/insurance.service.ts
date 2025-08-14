@@ -2,6 +2,7 @@ import { HttpException, HttpStatus, Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { DeleteResult, ILike, Repository } from "typeorm";
 import { Insurance } from "../entities/insurance.entity";
+import { CarService } from "../../car/services/car.service";
 
 @Injectable()
 export class InsuranceService {
@@ -17,7 +18,6 @@ export class InsuranceService {
             }
         });
     }
-
 
     async findById(id: number): Promise<Insurance> {
         const insurance = await this.insuranceRepository.findOne({

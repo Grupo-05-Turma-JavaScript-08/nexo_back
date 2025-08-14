@@ -6,17 +6,21 @@ import { Insurance } from "../../insurance/entities/insurance.entity";
 @Entity({ name: "tb_car" })
 export class Car {
 
+    @ApiProperty()
     @PrimaryGeneratedColumn()
     id: number
 
+    @ApiProperty()
     @IsNotEmpty()
     @Column({ length: 100, nullable: false })
     name: string
 
+    @ApiProperty()
     @IsNotEmpty()
     @Column("decimal", { precision: 10, scale: 2 })
     price: number
 
+    @ApiProperty()
     @IsNotEmpty()
     @Column({ length: 200, nullable: false })
     description: string
@@ -26,6 +30,15 @@ export class Car {
     @Column({ type: Date, nullable: false })
     manufacturingYear: Date
 
+    @ApiProperty()
+    @Column("decimal", { precision: 10, scale: 2 })
+    premiumAmount: number
+
+    @ApiProperty()
+    @Column({ length: 100, nullable: false })
+        insuranceStatus: string
+
+    @ApiProperty({type: () => Insurance })
     @ManyToOne(() => Insurance, (insurance) => insurance.car, {
         onDelete: "CASCADE"
     })

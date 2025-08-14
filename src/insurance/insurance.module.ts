@@ -1,4 +1,4 @@
-import { Module } from "@nestjs/common";
+import { forwardRef, Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { Insurance } from "./entities/insurance.entity";
 import { InsuranceController } from "./controller/insurance.controller";
