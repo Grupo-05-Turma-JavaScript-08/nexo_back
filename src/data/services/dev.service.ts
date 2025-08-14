@@ -1,5 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { TypeOrmModuleOptions, TypeOrmOptionsFactory } from "@nestjs/typeorm";
+import { Car } from "../../car/entities/car.entity";
 
 
 @Injectable()
@@ -8,13 +9,13 @@ export class DevService implements TypeOrmOptionsFactory {
     createTypeOrmOptions(): TypeOrmModuleOptions {
         return {
             type: 'mysql',
-            host: 'localhost',
-            port: 3306,
-            username: 'root',
-            password: 'root',
-            database: 'db_car_protect',
-            entities: [],
-            synchronize: true,
-    };
-  }
+            host: process.env.DB_HOST,
+            port: Number(process.env.DB_PORT),
+            username: process.env.DB_USERNAME,
+            password: process.env.DB_PASSWORD,
+            database: process.env.DB_NAME,
+            entities: [Car],
+            synchronize: process.env.NODE_ENV === 'development',
+        };
+    }
 }
