@@ -37,7 +37,7 @@ export class CarService {
 
         return car;
     }
-    async findBylicensePlate(licensePlate: string): Promise<Car> {
+    async findBylicensePlate(licensePlate: string): Promise<Car | null> {
         const car = await this.carRepository.findOne({
             where: {
                 licensePlate
@@ -46,9 +46,6 @@ export class CarService {
                 insurance: true, user: true
             }
         });
-
-        if (!car)
-            throw new HttpException('Carro não encontrado!', HttpStatus.NOT_FOUND);
 
         return car;
     }
@@ -73,7 +70,7 @@ export class CarService {
         const existsByLicense= await this.findBylicensePlate(car.licensePlate)
 
         if (existsByLicense) {
-            throw new HttpException(`carro com placa: ${existsByLicense} já existe`,HttpStatus.CONFLICT);
+            throw new HttpException(`carro com placa: ${car.licensePlate} já existe`,HttpStatus.CONFLICT);
         }
 
         const insurance = await this.insuranceService.findById(car.insurance.id);

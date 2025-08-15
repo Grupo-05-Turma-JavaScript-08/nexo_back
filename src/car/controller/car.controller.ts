@@ -23,12 +23,6 @@ export class carController {
         return this.carService.findById(id);
     }
 
-    @Get('/placa_do_carro/:placa')
-    @HttpCode(HttpStatus.OK)
-    findBylicensePlate(@Param('placa') licensePlate: string): Promise<Car> {
-        return this.carService.findBylicensePlate(licensePlate);
-    }
-
     @Get('/modelo/:modelo')
     @HttpCode(HttpStatus.OK)
     findByAllModel(@Param('modelo')model: string):Promise<Car[]>{
