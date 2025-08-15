@@ -7,12 +7,13 @@ import { CarModule } from './car/car.module';
 import { InsuranceModule } from './insurance/insurance.module';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
+import { ProdService } from './data/services/prod.service';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
     TypeOrmModule.forRootAsync({
-      useClass: DevService,
+      useClass: ProdService,
       imports: [ConfigModule],
     }),
   CarModule, InsuranceModule, AuthModule, UserModule
