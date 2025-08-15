@@ -11,8 +11,8 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
 
     constructor(private readonly authService: AuthService) {
         super(); 
-        this._usernameField = 'usuario';
-        this._passwordField = 'senha';
+        this._usernameField = 'username';
+        this._passwordField = 'password';
     }
 
     async validate(usuario: string, senha: string): Promise<any> {

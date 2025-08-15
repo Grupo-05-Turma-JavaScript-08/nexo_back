@@ -2,8 +2,11 @@ import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, ParseIntPip
 import { CarService } from "../services/car.service";
 import { Car } from "../entities/car.entity";
 import { JwtAuthGuard } from "../../auth/guard/jwt-auth.guard";
+import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
 
 @UseGuards(JwtAuthGuard)
+@ApiTags('car')
+@ApiBearerAuth()
 @Controller('/carro')
 export class carController {
     constructor(private readonly carService: CarService) { }

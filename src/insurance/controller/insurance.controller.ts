@@ -2,8 +2,11 @@ import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, ParseIntPip
 import { InsuranceService } from "../services/insurance.service";
 import { Insurance } from "../entities/insurance.entity";
 import { JwtAuthGuard } from "../../auth/guard/jwt-auth.guard";
+import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
 
 @UseGuards(JwtAuthGuard)
+@ApiTags('insurance')
+@ApiBearerAuth()
 @Controller('/plano')
 export class InsuranceController {
      constructor(private readonly insuranceService: InsuranceService) { }
