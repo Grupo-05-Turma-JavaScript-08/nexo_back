@@ -5,6 +5,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { DevService } from './data/services/dev.service';
 import { CarModule } from './car/car.module';
 import { InsuranceModule } from './insurance/insurance.module';
+import { AuthModule } from './auth/auth.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -13,7 +15,7 @@ import { InsuranceModule } from './insurance/insurance.module';
       useClass: DevService,
       imports: [ConfigModule],
     }),
-  CarModule,InsuranceModule
+  CarModule, InsuranceModule, AuthModule, UserModule
   ],
   controllers: [AppController],
   providers: [],

@@ -1,7 +1,9 @@
-import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, ParseIntPipe, Post, Put } from "@nestjs/common";
+import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, ParseIntPipe, Post, Put, UseGuards } from "@nestjs/common";
 import { CarService } from "../services/car.service";
 import { Car } from "../entities/car.entity";
+import { JwtAuthGuard } from "../../auth/guard/jwt-auth.guard";
 
+@UseGuards(JwtAuthGuard)
 @Controller('/carro')
 export class carController {
     constructor(private readonly carService: CarService) { }
@@ -17,10 +19,17 @@ export class carController {
     findById(@Param('id', ParseIntPipe) id: number): Promise<Car> {
         return this.carService.findById(id);
     }
-    @Get('/nome/:nome')
+
+    @Get('/placa_do_carro/:placa')
     @HttpCode(HttpStatus.OK)
-    findByAllNome(@Param('nome')nome: string):Promise<Car[]>{
-        return this.carService.findAllByNome(nome);
+    findBylicensePlate(@Param('placa') licensePlate: string): Promise<Car> {
+        return this.carService.findBylicensePlate(licensePlate);
+    }
+
+    @Get('/modelo/:modelo')
+    @HttpCode(HttpStatus.OK)
+    findByAllModel(@Param('modelo')model: string):Promise<Car[]>{
+        return this.carService.findAllByModel(model);
     }
     @Post()
     @HttpCode(HttpStatus.CREATED)
