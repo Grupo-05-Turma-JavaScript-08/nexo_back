@@ -103,8 +103,8 @@ export class CarService {
 
         await this.findById(id)
 
-        return await this.delete(id)
-    }
+        return await this.carRepository.delete(id)
+    } 
 
     private calculatePremiumValue(car: Car, insurance: Insurance): number {
         const today = new Date();
