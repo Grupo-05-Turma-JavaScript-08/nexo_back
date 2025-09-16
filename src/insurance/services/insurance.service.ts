@@ -58,6 +58,6 @@ export class InsuranceService {
     async delete(id: number): Promise<DeleteResult> {
         await this.findById(id)
 
-        return await this.delete(id)
+        return await this.insuranceRepository.delete(id)
     }
 }
