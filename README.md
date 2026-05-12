@@ -1,98 +1,91 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Nexo Backend - API de Seguros Automotivos
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Backend desenvolvido em equipe para o projeto **Nexo**, uma plataforma de gestao de seguros automotivos. A API centraliza cadastro de usuarios, autenticacao, veiculos, planos de seguro e associacao entre carros e coberturas, com regras de negocio aplicadas ao contexto de seguros.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+O projeto foi construido com foco em APIs REST, organizacao de entidades, validacao de dados, documentacao tecnica e deploy em ambiente cloud, alinhado a praticas usadas em aplicacoes backend corporativas.
 
-## Description
+## Links do Projeto
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- Repositorio back-end: https://github.com/Grupo-05-Turma-JavaScript-08/nexo_back
+- Repositorio front-end: https://github.com/Grupo-05-Turma-JavaScript-08/nexo_front
+- Deploy back-end: adicionar URL do Render
+- Deploy front-end: adicionar URL do Render
+- Documentacao Swagger: `/swagger`
 
-## Project setup
+## Principais Funcionalidades
 
-```bash
-$ npm install
-```
+- Cadastro e autenticacao de usuarios.
+- Autenticacao com JWT e criptografia de senha com bcrypt.
+- CRUD de veiculos com dados como modelo, placa, valor, descricao e ano de fabricacao.
+- CRUD de planos de seguro.
+- Associacao entre veiculos, usuarios e seguros.
+- Regras de negocio para calculo de premio e status do seguro.
+- Validacao de dados com `class-validator`.
+- Documentacao interativa dos endpoints com Swagger/OpenAPI.
+- Configuracao de banco para desenvolvimento e producao.
 
-## Compile and run the project
+## Tecnologias
 
-```bash
-# development
-$ npm run start
+- Node.js
+- TypeScript
+- NestJS
+- TypeORM
+- PostgreSQL
+- MySQL
+- JWT
+- bcrypt
+- Swagger/OpenAPI
+- Postman/Insomnia
+- Git/GitHub
+- Render
 
-# watch mode
-$ npm run start:dev
+## Contexto Tecnico
 
-# production mode
-$ npm run start:prod
-```
+Este backend reforca competencias em desenvolvimento de APIs REST, modelagem relacional, autenticacao, integracao com frontend e documentacao de endpoints. Tambem representa uma experiencia pratica em trabalho em equipe, organizacao por modulos e entrega de funcionalidades dentro de um fluxo de projeto.
 
-## Run tests
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+## Como Rodar Localmente
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+npm install
+npm run start:dev
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+Para gerar a build de producao:
 
-## Resources
+```bash
+npm run build
+npm run start:prod
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+## Variaveis de Ambiente
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+Em producao, o projeto usa `DATABASE_URL` para conexao com PostgreSQL:
 
-## Support
+```env
+DATABASE_URL=postgresql://usuario:senha@host:porta/banco
+PORT=4000
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Em desenvolvimento, o servico `DevService` tambem aceita variaveis separadas de banco:
 
-## Stay in touch
+```env
+DB_HOST=
+DB_PORT=
+DB_USERNAME=
+DB_PASSWORD=
+DB_NAME=
+NODE_ENV=development
+```
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## Deploy no Render
 
-## License
+Configuracao recomendada para o Render:
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+```bash
+Build Command: npm ci && npm run build
+Start Command: npm run start:prod
+```
+
+## Autor
+
+Desenvolvido em equipe no bootcamp da Generation Brasil, com participacao de Gabriel Martins no desenvolvimento backend.
