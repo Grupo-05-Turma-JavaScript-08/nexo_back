@@ -7,9 +7,9 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
-  .setTitle('CarProtect')
-  .setDescription('Projeto CarProtect')
-  .setContact("CarProtect","https://github.com/Grupo-05-Turma-JavaScript-08","grupo.05.turma.javascript.08@gmail.com")
+  .setTitle('Nexo_Back-end')
+  .setDescription('Projeto Nexo_Back-end')
+  .setContact("Nexo_Back-end","https://github.com/Grupo-05-Turma-JavaScript-08","grupo.05.turma.javascript.08@gmail.com")
   .setVersion('1.0')
   .addBearerAuth()
   .build();
